@@ -1,15 +1,15 @@
-# import re
+######################################################################################################################
+# Name: Inexus
+# Programming: Python
+# Project-Date: 16th Dez 2021
+# Hacking-Challenge CYBER-ROTKAEPPCHEN
+######################################################################################################################
 
-datei = open('cybertext.txt', 'r')
-string = datei.read().splitlines()
-NewText = list()
-cyber_binary = ""
-count_index = 0
-num_block = 0  # 1 Byte-Block counter
+#############################################
+# Functions - Group
+#############################################
 
-
-# Kontrolliere cyber_binary Byte für Byte
-
+# Controll every cyber_binary Byte for Byte
 def check_Byte(txt):
     count = 0
     for _ in txt:
@@ -37,6 +37,17 @@ def translate(txt):
     return result_tmp
 
 
+##############################################
+# main
+##############################################
+
+datei = open('cybertext.txt', 'r')
+string = datei.read().splitlines()
+NewText = list()
+cyber_binary = ""
+count_index = 0
+num_block = 0  # 1 Byte-Block counter
+
 # Split lines in Text
 for lines in string:
     if lines.__len__() > 0:
@@ -58,10 +69,12 @@ for line in NewText:
                 if num_block < 23:
                     cyber_binary += str(' ')
                 count_index = 0
+###################################################################
+# Output
+###################################################################
 
 print("Übersetze cyber_binary zu einem lesbaren ASCII-Code.... \n")
 result = translate(cyber_binary)
 print("Das Lösungswort lautet: " + str(result))
 print("done")
-
-datei.close() # Close Text-datafile
+datei.close()  # Close Text-datafile
